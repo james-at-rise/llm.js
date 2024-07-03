@@ -79,8 +79,9 @@ export default async function OpenAI(messages, options = {}) {
     const response = await openai.chat.completions.create(openaiOptions, networkOptions);
     if (options.eventEmitter) {
         options.eventEmitter.on('abort', () => {
-            response.controller.abort();
-            throw new Error("Request aborted");
+            if (response && response.controller) {
+                response.controller.abort();
+            }
         });
     }
 
