@@ -20,7 +20,7 @@ export default async function OpenAI(messages, options = {}) {
     const dangerouslyAllowBrowser = options.dangerouslyAllowBrowser || false;
     const openai = new OpenAIClient({
       apiKey,
-      baseURL: options.endpoint || process.env.OPENAI_API_KEY || ENDPOINT,
+      baseURL: options.endpoint || ENDPOINT,
       dangerouslyAllowBrowser
     });
 
