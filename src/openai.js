@@ -117,7 +117,7 @@ OpenAI.parseStream = async function* (response, usage) {
         if (usage && chunk.usage) {
             await usage(chunk.usage);
         }
-        yield chunk.choices[0].delta.content || "";
+        yield chunk.choices[0]?.delta.content || "";
     }
 };
 
