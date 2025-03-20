@@ -45,7 +45,7 @@ export default async function OpenAI(messages, options = {}) {
         if (openaiOptions.temperature > 2) openaiOptions.temperature = 2;
     }
 
-    if (typeof options.max_tokens !== "undefined") { openaiOptions.max_tokens = options.max_tokens }
+    if (typeof options.max_tokens !== "undefined") { openaiOptions.max_completion_tokens = options.max_tokens }
     if (typeof options.seed !== "undefined") { openaiOptions.seed = options.seed }
 
     let isJSONFormat = false;
